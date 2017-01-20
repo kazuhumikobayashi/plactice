@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block body %}
+  <form action="{{ url_for('update_product', product_id=product.id) }}" method=post class=add-product>
+    <ul class=product>
+      <li><h2>{{ product.id }}</h2>
+        update_name<input type=text size=20 name=product_name>
+        <input type=submit value=update>
+    </ul>
+  </form>
+  
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block body %}
+  <form action="{{ url_for('add_product') }}" method=post class=add-entry>
+    <dl>
+      <dt>add:
+      <dd><input type=text size=20 name=product_name>
+      <dd><input type=submit value=add>
+    </dl>
+
+  
+  
+  
+   <ul class=products>
+   {% for product in products %}
+   <li><h2>{{ product.id }}</h2>{{ product.product_name|safe }}
+   <a href="{{ url_for('delete_product', product_id=product.id) }}">del</a>
+   <a href="{{ url_for('senni_update', product_id=product.id) }}">update</a>
+   {% else %}
+     <li><em>Unbelievable.  No products here so far</em>
+   {% endfor %}
+   </ul>
+  
+  </form>
+{% endblock %}
